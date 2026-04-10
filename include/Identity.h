@@ -1,5 +1,10 @@
 #pragma once
 #include <iostream>
-using namespace std;
+#include <string>
 
-class Identity {};
+class Identity {
+   public:
+    virtual void openMenu() = 0;
+    std::string m_Name;
+    std::string m_Pwd;
+};
