@@ -45,7 +45,10 @@ void Login(const string& fileName, int type) {
         while (ifs >> fId && ifs >> fName && ifs >> fPwd) {
             if (fId == id && fName == name && fPwd == pwd) {
                 cout << "Student login verification success!" << endl;
-                person = new Student();
+
+                person = new Student(id, name, pwd);
+
+                return;
             }
         }
     } else if (type == 2) {  // Teacher login
