@@ -13,4 +13,4 @@ void Student::showAllOrder() {}
 
 void Student::cancelOrder() {}
 
-int Student::getId() const { return 0; }
+int Student::getId() const { return m_Id; }
