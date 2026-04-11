@@ -8,6 +8,41 @@
 
 using namespace std;
 
+void administratorMenu(Person*& administrator) {
+    while (true) {
+        administrator->openMenu();
+
+        Administrator* admin = (Administrator*)administrator;
+
+        int select = 0;
+
+        cin >> select;
+
+        if (select == 1) {
+            cout << "add account" << endl;
+            admin->addPerson();
+
+        } else if (select == 2) {
+            cout << "view account" << endl;
+            admin->showPerson();
+
+        } else if (select == 3) {
+            cout << "view computer room information" << endl;
+            admin->showComputer();
+
+        } else if (select == 4) {
+            cout << "clear reservation record" << endl;
+            admin->clearRecord();
+
+        } else {
+            delete admin;
+            cout << "Logout successfully!" << endl;
+
+            return;
+        }
+    }
+}
+
 void Login(const string& fileName, int type) {
     Person* person = nullptr;
 
@@ -74,7 +109,7 @@ void Login(const string& fileName, int type) {
                 cout << "Administrator login verification success!" << endl;
 
                 person = new Administrator(name, pwd);
-
+                administratorMenu(person);
                 return;
             }
         }
