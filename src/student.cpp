@@ -1,1 +1,1 @@
-class student {};
+class Student {};
