@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-class Identity {
+class identity {
    public:
     virtual void openMenu() = 0;
     std::string m_Name;
