@@ -52,11 +52,23 @@ void Login(const string& fileName, int type) {
             }
         }
     } else if (type == 2) {  // Teacher login
+        int fId;
+        string fName;
+        string fPwd;
 
+        while (ifs >> fId && ifs >> fName && ifs >> fPwd) {
+            if (fId == id && fName == name && fPwd == pwd) {
+                cout << "Teacher login verification success!" << endl;
+
+                person = new Teacher(id, name, pwd);
+
+                return;
+            }
+        }
     } else if (type == 3) {  // Administer login
     }
 
-    cout << "Failed to verify login!" << endl;
+    cout << "Failed to verify login ..." << endl;
     return;
 }
 
