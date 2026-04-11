@@ -10,12 +10,9 @@ class Manager : public Identity {
     void openMenu() override;
 
     void addPerson();
+    void showPerson();
 
-    void showAllOrder();
-    void validOrder();
+    void showComputer();
 
-    int getId() const;
-
-   private:
-    int m_EmpId;
+    void clearRecord();
 };
