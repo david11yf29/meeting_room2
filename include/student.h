@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
-#include "Identity.h"
+#include "Person.h"
 
-class Student : public Identity {
+class Student : public Person {
    public:
     Student();
     Student(int id, const std::string& name, const std::string& pwd);

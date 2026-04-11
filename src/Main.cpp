@@ -1,18 +1,21 @@
 #include <iostream>
 #include <fstream>
-#include "Identity.h"
-#include "GlobalFile.h"
+#include "Person.h"
+#include "DataPaths.h"
+#include "Student.h"
+#include "Teacher.h"
+#include "Manager.h"
+
 using namespace std;
 
 void Login(const string& fileName, int type) {
-    Identity* person = nullptr;
+    Person* person = nullptr;
 
     ifstream ifs;
     ifs.open(fileName, ios::in);
 
     if (!ifs.is_open()) {
         cout << "File is not exist\n";
-        ifs.close();
         return;
     }
 
@@ -35,14 +38,22 @@ void Login(const string& fileName, int type) {
     cin >> pwd;
 
     if (type == 1) {  // Student login
+        int fId;
+        string fName;
+        string fPwd;
 
+        while (ifs >> fId && ifs >> fName && ifs >> fPwd) {
+            if (fId == id && fName == name && fPwd == pwd) {
+                cout << "Student login verification success!" << endl;
+                person = new Student();
+            }
+        }
     } else if (type == 2) {  // Teacher login
 
     } else if (type == 3) {  // Administer login
     }
 
     cout << "Failed to verify login!" << endl;
-    system("clear");
     return;
 }
 
