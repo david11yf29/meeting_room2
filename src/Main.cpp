@@ -4,7 +4,7 @@
 #include "DataPaths.h"
 #include "Student.h"
 #include "Teacher.h"
-#include "Manager.h"
+#include "Administrator.h"
 
 using namespace std;
 
@@ -66,6 +66,18 @@ void Login(const string& fileName, int type) {
             }
         }
     } else if (type == 3) {  // Administer login
+        string fName;
+        string fPwd;
+
+        while (ifs >> fName && ifs >> fPwd) {
+            if (fName == name && fPwd == pwd) {
+                cout << "Administrator login verification success!" << endl;
+
+                person = new Administrator(name, pwd);
+
+                return;
+            }
+        }
     }
 
     cout << "Failed to verify login ..." << endl;

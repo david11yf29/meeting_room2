@@ -1,13 +1,13 @@
-#include "Manager.h"
+#include "Administrator.h"
 
-Manager::Manager() {}
-Manager::Manager(const std::string& name, const std::string& pwd) {}
+Administrator::Administrator() {}
+Administrator::Administrator(const std::string& name, const std::string& pwd) {}
 
-void Manager::openMenu() {}
+void Administrator::openMenu() {}
 
-void Manager::addPerson() {}
-void Manager::showPerson() {}
+void Administrator::addPerson() {}
+void Administrator::showPerson() {}
 
-void Manager::showComputer() {}
+void Administrator::showComputer() {}
 
-void Manager::clearRecord() {}
+void Administrator::clearRecord() {}
