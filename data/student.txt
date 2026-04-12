@@ -1,3 +1,2 @@
 1 zhangsan 123 
-2 lisi 123456 
-3 wangwu 123456 
+2 lisi 123 

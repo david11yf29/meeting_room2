@@ -82,6 +82,8 @@ void Administrator::addPerson() {
     cout << "Account successfully created!" << endl;
 
     ofs.close();
+
+    this->initVector();
 }
 void Administrator::showPerson() {}
 
