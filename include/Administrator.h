@@ -6,6 +6,7 @@
 #include "Student.h"
 #include "Teacher.h"
 #include <vector>
+#include <algorithm>
 
 class Administrator : public Person {
    public:

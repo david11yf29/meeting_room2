@@ -1,6 +1,5 @@
 #include "Administrator.h"
 #include <iostream>
-#include "Student.h"
 using namespace std;
 
 Administrator::Administrator() {}
@@ -85,7 +84,33 @@ void Administrator::addPerson() {
 
     this->initVector();
 }
-void Administrator::showPerson() {}
+
+void printStudent(Student& stu) {
+    cout << "Student ID: " << stu.m_Id << " Name: " << stu.m_Name
+         << " Password: " << stu.m_Pwd << endl;
+}
+
+void printTeacher(Teacher& tea) {
+    cout << "Teacher ID: " << tea.m_EmpId << " Name: " << tea.m_Name
+         << " Password: " << tea.m_Pwd << endl;
+}
+
+void Administrator::showPerson() {
+    cout << "Please select the content to display: " << endl;
+    cout << "1. View all students" << endl;
+    cout << "2. View all teachers" << endl;
+
+    int select = 0;
+    cin >> select;
+
+    if (select == 1) {
+        cout << "All student information are as follows: " << endl;
+        for_each(vStu.begin(), vStu.end(), printStudent);
+    } else {
+        cout << "All teacher information are as follows: " << endl;
+        for_each(vTea.begin(), vTea.end(), printTeacher);
+    }
+}
 
 void Administrator::showComputer() {}
 
