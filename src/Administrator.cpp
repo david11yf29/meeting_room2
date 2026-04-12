@@ -1,5 +1,6 @@
 #include "Administrator.h"
 #include <iostream>
+#include "Student.h"
 using namespace std;
 
 Administrator::Administrator() {}
@@ -35,6 +36,7 @@ void Administrator::addPerson() {
 
     string fileName;
     string tip;
+    string errorTip;
 
     ofstream ofs;
 
@@ -45,11 +47,11 @@ void Administrator::addPerson() {
     if (select == 1) {
         fileName = STUDENT_FILE;
         tip = "Please enter student ID: ";
-        // errorTips = "Duplicate student ID, please re-enter: ";
+        errorTip = "Duplicate student ID, please re-enter: ";
     } else {
         fileName = TEACHER_FILE;
         tip = "Please enter teacher ID: ";
-        // errorTips = "Duplicate teacher ID, please re-enter: ";
+        errorTip = "Duplicate teacher ID, please re-enter: ";
     }
 
     ofs.open(fileName, ios::out | ios::app);
@@ -59,7 +61,16 @@ void Administrator::addPerson() {
     string pwd;
 
     cout << tip << endl;
-    cin >> id;
+
+    while (true) {
+        cin >> id;
+        bool repeat = checkRepeat(id, select);
+        if (repeat) {
+            cout << errorTip;
+        } else {
+            break;
+        }
+    }
 
     cout << "Please enter username: " << endl;
     cin >> name;
@@ -110,4 +121,24 @@ void Administrator::initVector() {
 
     cout << "The current number of teachers is: " << vTea.size() << endl;
     ifs.close();
+}
+
+bool Administrator::checkRepeat(int id, int type) {
+    if (type == 1) {
+        for (vector<Student>::iterator it = vStu.begin(); it != vStu.end();
+             it++) {
+            if (id == it->m_Id) {
+                return true;
+            }
+        }
+    } else {
+        for (vector<Teacher>::iterator it = vTea.begin(); it != vTea.end();
+             it++) {
+            if (id == it->m_EmpId) {
+                return true;
+            }
+        }
+    }
+
+    return false;
 }

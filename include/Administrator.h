@@ -23,6 +23,8 @@ class Administrator : public Person {
 
     void initVector();
 
+    bool checkRepeat(int id, int type);
+
     std::vector<Student> vStu;
 
     std::vector<Teacher> vTea;
