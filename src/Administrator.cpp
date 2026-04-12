@@ -26,7 +26,50 @@ void Administrator::openMenu() {
     cout << "Please choose your operation: ";
 }
 
-void Administrator::addPerson() {}
+void Administrator::addPerson() {
+    cout << "Please enter the add account type" << endl;
+    cout << "1. Add Student" << endl;
+    cout << "2. Add Teacher" << endl;
+
+    string fileName;
+    string tip;
+
+    ofstream ofs;
+
+    int select = 0;
+
+    cin >> select;
+
+    if (select == 1) {
+        fileName = STUDENT_FILE;
+        tip = "Please enter student ID: ";
+        // errorTips = "Duplicate student ID, please re-enter: ";
+    } else {
+        fileName = TEACHER_FILE;
+        tip = "Please enter teacher ID: ";
+        // errorTips = "Duplicate teacher ID, please re-enter: ";
+    }
+
+    ofs.open(fileName, ios::out | ios::app);
+
+    int id;
+    string name;
+    string pwd;
+
+    cout << tip << endl;
+    cin >> id;
+
+    cout << "Please enter username: " << endl;
+    cin >> name;
+
+    cout << "Please enter password: " << endl;
+    cin >> pwd;
+
+    ofs << id << " " << name << " " << pwd << " " << endl;
+    cout << "Account successfully created!" << endl;
+
+    ofs.close();
+}
 void Administrator::showPerson() {}
 
 void Administrator::showComputer() {}

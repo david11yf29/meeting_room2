@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include "Person.h"
+#include <fstream>
+#include "DataPaths.h"
 
 class Administrator : public Person {
    public:
