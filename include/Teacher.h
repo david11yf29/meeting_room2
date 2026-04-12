@@ -12,8 +12,5 @@ class Teacher : public Person {
     void showAllOrder();
     void validOrder();
 
-    int getId() const;
-
-   private:
     int m_EmpId;
 };

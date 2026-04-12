@@ -14,8 +14,5 @@ class Student : public Person {
     void showAllOrder();
     void cancelOrder();
 
-    int getId() const;
-
-   private:
     int m_Id;
 };

@@ -7,5 +7,3 @@ void Teacher::openMenu() {}
 
 void Teacher::showAllOrder() {}
 void Teacher::validOrder() {}
-
-int Teacher::getId() const { return m_EmpId; }

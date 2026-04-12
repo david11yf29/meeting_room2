@@ -12,5 +12,3 @@ void Student::showMyOrder() {}
 void Student::showAllOrder() {}
 
 void Student::cancelOrder() {}
-
-int Student::getId() const { return m_Id; }

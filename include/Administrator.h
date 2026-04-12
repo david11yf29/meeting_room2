@@ -3,6 +3,9 @@
 #include "Person.h"
 #include <fstream>
 #include "DataPaths.h"
+#include "Student.h"
+#include "Teacher.h"
+#include <vector>
 
 class Administrator : public Person {
    public:
@@ -17,4 +20,10 @@ class Administrator : public Person {
     void showComputer();
 
     void clearRecord();
+
+    void initVector();
+
+    std::vector<Student> vStu;
+
+    std::vector<Teacher> vTea;
 };

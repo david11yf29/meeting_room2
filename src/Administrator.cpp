@@ -6,6 +6,8 @@ Administrator::Administrator() {}
 Administrator::Administrator(const std::string& name, const std::string& pwd) {
     this->m_Name = name;
     this->m_Pwd = pwd;
+
+    this->initVector();
 }
 
 void Administrator::openMenu() {
@@ -75,3 +77,37 @@ void Administrator::showPerson() {}
 void Administrator::showComputer() {}
 
 void Administrator::clearRecord() {}
+
+void Administrator::initVector() {
+    vStu.clear();
+    vTea.clear();
+
+    ifstream ifs;
+    ifs.open(STUDENT_FILE, ios::in);
+    if (!ifs.is_open()) {
+        cout << "File reading failed!" << endl;
+        return;
+    }
+
+    Student s;
+    while (ifs >> s.m_Id && ifs >> s.m_Name && ifs >> s.m_Pwd) {
+        vStu.push_back(s);
+    }
+
+    cout << "The current number of students is: " << vStu.size() << endl;
+    ifs.close();
+
+    ifs.open(TEACHER_FILE, ios::in);
+    if (!ifs.is_open()) {
+        cout << "File reading failed!" << endl;
+        return;
+    }
+
+    Teacher t;
+    while (ifs >> t.m_EmpId && ifs >> t.m_Name && ifs >> t.m_Pwd) {
+        vTea.push_back(t);
+    }
+
+    cout << "The current number of teachers is: " << vTea.size() << endl;
+    ifs.close();
+}
