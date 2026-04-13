@@ -3,6 +3,7 @@
 
 class Person {
    public:
+    virtual ~Person() = default;
     virtual void openMenu() = 0;
     std::string m_Name;
     std::string m_Pwd;

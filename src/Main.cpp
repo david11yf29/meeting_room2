@@ -8,6 +8,33 @@
 
 using namespace std;
 
+void studentMenu(Person*& student) {
+    while (true) {
+        student->openMenu();
+
+        Student* stu = (Student*)student;
+
+        int select = 0;
+
+        cin >> select;
+
+        if (select == 1) {
+            stu->applyOrder();
+        } else if (select == 2) {
+            stu->showMyOrder();
+        } else if (select == 3) {
+            stu->showAllOrder();
+        } else if (select == 4) {
+            stu->cancelOrder();
+        } else {
+            delete student;
+            cout << "Logout successfully!" << endl;
+
+            return;
+        }
+    }
+}
+
 void administratorMenu(Person*& administrator) {
     while (true) {
         administrator->openMenu();
@@ -82,7 +109,7 @@ void Login(const string& fileName, int type) {
                 cout << "Student login verification success!" << endl;
 
                 person = new Student(id, name, pwd);
-
+                studentMenu(person);
                 return;
             }
         }
