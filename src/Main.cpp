@@ -19,19 +19,19 @@ void administratorMenu(Person*& administrator) {
         cin >> select;
 
         if (select == 1) {
-            cout << "add account" << endl;
+            // cout << "add account" << endl;
             admin->addPerson();
 
         } else if (select == 2) {
-            cout << "view account" << endl;
+            // cout << "view account" << endl;
             admin->showPerson();
 
         } else if (select == 3) {
-            cout << "view computer room information" << endl;
+            // cout << "view computer room information" << endl;
             admin->showComputer();
 
         } else if (select == 4) {
-            cout << "clear reservation record" << endl;
+            // cout << "clear reservation record" << endl;
             admin->clearRecord();
 
         } else {

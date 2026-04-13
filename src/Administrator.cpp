@@ -136,7 +136,12 @@ void Administrator::showComputer() {
     }
 }
 
-void Administrator::clearRecord() {}
+void Administrator::clearRecord() {
+    ofstream ofs(ORDER_FILE, ios::trunc);
+    ofs.close();
+
+    cout << "Had Cleaned the Order Information" << endl;
+}
 
 void Administrator::initVector() {
     vStu.clear();
