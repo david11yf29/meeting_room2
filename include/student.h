@@ -5,6 +5,7 @@
 #include "ComputerRoom.h"
 #include <fstream>
 #include "DataPaths.h"
+#include "OrderFile.h"
 
 class Student : public Person {
    public:

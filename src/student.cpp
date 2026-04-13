@@ -114,7 +114,7 @@ void Student::applyOrder() {
     ofs.close();
 }
 
-void Student::showMyOrder() {}
+void Student::showMyOrder() { OrderFile of; }
 
 void Student::showAllOrder() {}
 
