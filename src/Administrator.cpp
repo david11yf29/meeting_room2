@@ -1,5 +1,6 @@
 #include "Administrator.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 Administrator::Administrator() {}
@@ -8,6 +9,20 @@ Administrator::Administrator(const std::string& name, const std::string& pwd) {
     this->m_Pwd = pwd;
 
     this->initVector();
+
+    ifstream ifs;
+    ifs.open(COMPUTER_FILE, ios::in);
+    if (!ifs.is_open()) {
+        cout << "File reading failed!" << endl;
+        return;
+    }
+
+    ComputerRoom com;
+    while (ifs >> com.m_ComId && ifs >> com.m_MaxNum) {
+        vCom.push_back(com);
+    }
+    ifs.close();
+    cout << "The number of computer room is: " << vCom.size() << endl;
 }
 
 void Administrator::openMenu() {
@@ -112,7 +127,14 @@ void Administrator::showPerson() {
     }
 }
 
-void Administrator::showComputer() {}
+void Administrator::showComputer() {
+    cout << "Computer Information Show: " << endl;
+    for (vector<ComputerRoom>::iterator it = vCom.begin(); it != vCom.end();
+         it++) {
+        cout << "Computer Id: " << it->m_ComId << endl;
+        cout << "Computer Capacity: " << it->m_MaxNum << endl;
+    }
+}
 
 void Administrator::clearRecord() {}
 

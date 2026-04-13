@@ -5,6 +5,7 @@
 #include "DataPaths.h"
 #include "Student.h"
 #include "Teacher.h"
+#include "ComputerRoom.h"
 #include <vector>
 #include <algorithm>
 
@@ -29,4 +30,6 @@ class Administrator : public Person {
     std::vector<Student> vStu;
 
     std::vector<Teacher> vTea;
+
+    std::vector<ComputerRoom> vCom;
 };

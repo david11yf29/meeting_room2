@@ -10,7 +10,7 @@
 #define TEACHER_FILE "data/teacher.txt"
 
 // computer file
-#define COMPUTER_FILE "data/computerRoom.txt"
+#define COMPUTER_FILE "data/computer_room.txt"
 
 // order file
 #define ORDER_FILE "data/order.txt"
