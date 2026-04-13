@@ -1,6 +1,10 @@
 #pragma once
 #include <string>
 #include "Person.h"
+#include <vector>
+#include "ComputerRoom.h"
+#include <fstream>
+#include "DataPaths.h"
 
 class Student : public Person {
    public:
@@ -15,4 +19,6 @@ class Student : public Person {
     void cancelOrder();
 
     int m_Id;
+
+    std::vector<ComputerRoom> vCom;
 };
