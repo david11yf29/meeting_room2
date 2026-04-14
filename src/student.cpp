@@ -149,6 +149,39 @@ void Student::showMyOrder() {
     }
 }
 
-void Student::showAllOrder() {}
+void Student::showAllOrder() {
+    OrderFile of;
+
+    if (of.m_Size == 0) {
+        cout << "No reservation record!" << endl;
+        return;
+    }
+
+    for (int i = 0; i < of.m_Size; i++) {
+        cout << i + 1 << ". ";
+        cout << "Reservation date: " << of.m_orderData[i]["date"];
+        cout << ", Period: "
+             << (of.m_orderData[i]["interval"] == "1" ? "Morning"
+                                                      : "Afternoon");
+        cout << ", Student ID: " << of.m_orderData[i]["stuId"];
+        cout << ", Student name: " << of.m_orderData[i]["stuName"];
+        cout << ", Computer room number: " << of.m_orderData[i]["roomId"];
+
+        string status = ", Status: ";
+
+        // 1--under review, 2--already reserved, -1--reserve failed, 0--cancel
+        // reservation
+        if (of.m_orderData[i]["status"] == "1")
+            status += "under review";
+        else if (of.m_orderData[i]["status"] == "2")
+            status += "already reserved";
+        else if (of.m_orderData[i]["status"] == "-1")
+            status += "reserve failed, not approved";
+        else
+            status += "reservation canceled";
+
+        cout << status << endl;
+    }
+}
 
 void Student::cancelOrder() {}
