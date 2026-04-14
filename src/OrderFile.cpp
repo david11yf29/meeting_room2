@@ -79,22 +79,22 @@ OrderFile::OrderFile() {
     ifs.close();
 
     // test
-    for (map<int, map<string, string> >::iterator it = m_orderData.begin();
-         it != m_orderData.end(); it++) {
-        cout << "Number of record = " << it->first << " value = " << endl;
-        for (map<string, string>::iterator mit = (*it).second.begin();
-             mit != it->second.end(); mit++)
-            cout << " key = " << mit->first << " value = " << mit->second
-                 << " ";
-        cout << endl;
-    }
+    // for (map<int, map<string, string> >::iterator it = m_orderData.begin();
+    //      it != m_orderData.end(); it++) {
+    //     cout << "Number of record = " << it->first << " value = " << endl;
+    //     for (map<string, string>::iterator mit = (*it).second.begin();
+    //          mit != it->second.end(); mit++)
+    //         cout << " key = " << mit->first << " value = " << mit->second
+    //              << " ";
+    //     cout << endl;
+    // }
 }
 
 void OrderFile::updateOrder() {
-    if (this->m_size == 0) return;
+    if (this->m_Size == 0) return;
 
     ofstream ofs(ORDER_FILE, ios::out | ios::trunc);
-    for (int i = 0; i < this->m_size; i++) {
+    for (int i = 0; i < this->m_Size; i++) {
         ofs << "date:" << this->m_orderData[i]["date"] << " ";
         ofs << "interval :" << this->m_orderData[i]["interval"] << " ";
         ofs << "stuId:" << this->m_orderData[i]["stuId"] << " ";

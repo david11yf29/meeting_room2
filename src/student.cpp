@@ -114,7 +114,40 @@ void Student::applyOrder() {
     ofs.close();
 }
 
-void Student::showMyOrder() { OrderFile of; }
+void Student::showMyOrder() {
+    OrderFile of;
+    if (of.m_Size == 0) {
+        cout << "No reservation record!" << endl;
+        return;
+    }
+
+    for (int i = 0; i < of.m_Size; i++) {
+        if (this->m_Id == atoi(of.m_orderData[i]["stuId"].c_str())) {
+            cout << i + 1 << ". ";
+            cout << "Reservation date: " << of.m_orderData[i]["date"];
+            cout << ", Period: "
+                 << (of.m_orderData[i]["interval"] == "1" ? "Morning"
+                                                          : "Afternoon");
+            cout << ", Computer room number: " << of.m_orderData[i]["roomId"];
+            cout << ", Student ID: " << of.m_orderData[i]["stuId"];
+            cout << ", Student name: " << of.m_orderData[i]["stuName"];
+
+            string status = ", Status: ";
+            // 1--under review, 2--already reserved, -1--reserve failed,
+            // 0--cancel reservation
+            if (of.m_orderData[i]["status"] == "1")
+                status += "under review";
+            else if (of.m_orderData[i]["status"] == "2")
+                status += "already reserved";
+            else if (of.m_orderData[i]["status"] == "-1")
+                status += "reserve failed, not approved";
+            else
+                status += "reservation canceled";
+
+            cout << status << endl;
+        }
+    }
+}
 
 void Student::showAllOrder() {}
 
